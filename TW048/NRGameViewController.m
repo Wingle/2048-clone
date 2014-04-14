@@ -11,6 +11,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SoundPlayer.h"
 #import "NRGameOverSheetViewController.h"
+#import <Google-AdMob-Ads-SDK/GADBannerView.h>
+#import <Google-AdMob-Ads-SDK/GADRequest.h>
+#import <UMengAnalytics/MobClick.h>
+
+@interface NRGameViewController () <GADBannerViewDelegate>
+
+@property(nonatomic, strong) GADBannerView *adBanner;
+
+@end
 
 @implementation NRGameViewController {
     NRGameScene *scene;
@@ -45,6 +54,48 @@
     self.gamepadView.layer.masksToBounds = YES;
     
     [self prepareGame];
+    
+    
+    // admob
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    CGPoint origin = CGPointMake(0.0,
+                                 bounds.size.height - 50.f);
+    // Use predefined GADAdSize constants to define the GADBannerView.
+    self.adBanner = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner origin:origin];
+    
+    // Note: Edit SampleConstants.h to provide a definition for kSampleAdUnitID before compiling.
+    self.adBanner.adUnitID = kSampleAdUnitID;
+    self.adBanner.delegate = self;
+    self.adBanner.rootViewController = self;
+    [self.view addSubview:self.adBanner];
+    [self.adBanner loadRequest:[self request]];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"游戏页面"];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"游戏页面"];
+}
+
+- (GADRequest *)request {
+    GADRequest *request = [GADRequest request];
+    
+    // Make the request for a test ad. Put in an identifier for the simulator as well as any devices
+    // you want to receive test ads.
+    request.testDevices = @[
+                            // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
+                            // the console when the app is launched.
+                            GAD_SIMULATOR_ID,
+                            @"672e13ff37a8c1e99a51375df44e9f4c9f610d7f",
+                            @"5ea83bfbbab6d8e72c936fa4888757666a28a4c0"
+                            ];
+    return request;
 }
 
 -(void)prepareGame {
@@ -53,10 +104,10 @@
 
     // Configure the view.
     SKView * skView = (SKView *)self.gamepadView;
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
-    skView.showsPhysics = YES;
-    skView.showsDrawCount = YES;
+//    skView.showsFPS = YES;
+//    skView.showsNodeCount = YES;
+//    skView.showsPhysics = YES;
+//    skView.showsDrawCount = YES;
     
     //make property weak to use it in blocks
     __weak typeof(self) weakSelf = self;
@@ -101,16 +152,16 @@
         NRGameOverSheetViewController *viewController = (NRGameOverSheetViewController *)presentedFSViewController;
         viewController.score = score;
         if (gameOverType == kGameWon) {
-            viewController.statusTextLabel.text = @"You win!";
+            viewController.statusTextLabel.text = @"恭喜你，你赢了!";
             [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSuccess]
                                         waitForCompletion:NO]];
         } else {
-            viewController.statusTextLabel.text = @"You win!";
+            viewController.statusTextLabel.text = @"恭喜你，你赢了!";
             [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kFailure]
                                         waitForCompletion:NO]];
-            viewController.statusTextLabel.text = @"Game over!";
+            viewController.statusTextLabel.text = @"游戏结束!";
         }
-        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"You scored %i points",(int)score];
+        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"你的得分: %i",(int)score];
     };
     
     [self mz_presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {

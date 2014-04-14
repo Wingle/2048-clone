@@ -22,6 +22,7 @@
 		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
 		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
 		56BFB60D18EC6EFE0096A78E /* GZGameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB60C18EC6EFE0096A78E /* GZGameData.m */; };
+		9AE1B88401CF4ADF86A524E3 /* libPods-TW048.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD43AAF626249DABDBE11DA /* libPods-TW048.a */; };
 		A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */; };
 		A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1118DCF0B2001A68F0 /* NRTile.m */; };
 		A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1718DD19FA001A68F0 /* NRTileMatrix.m */; };
@@ -100,6 +101,8 @@
 		56C1175118DF944D00F6E79B /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		56C1175218DF944D00F6E79B /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		56C1175318DF944D00F6E79B /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		67FDAA5ACD684BF1AD75A5AA /* Pods-TW048.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TW048.xcconfig"; path = "Pods/Pods-TW048.xcconfig"; sourceTree = "<group>"; };
+		6DD43AAF626249DABDBE11DA /* libPods-TW048.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TW048.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6523F1018DCF0B2001A68F0 /* NRTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTile.h; sourceTree = "<group>"; };
 		A6523F1118DCF0B2001A68F0 /* NRTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTile.m; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 				A6B2848B18DB210F00E2654D /* UIKit.framework in Frameworks */,
 				A6B2848D18DB210F00E2654D /* SpriteKit.framework in Frameworks */,
 				A6B2848718DB210F00E2654D /* Foundation.framework in Frameworks */,
+				9AE1B88401CF4ADF86A524E3 /* libPods-TW048.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +315,7 @@
 				A6B284B218DB210F00E2654D /* TW048Tests */,
 				A6B2848518DB210E00E2654D /* Frameworks */,
 				A6B2848418DB210E00E2654D /* Products */,
+				67FDAA5ACD684BF1AD75A5AA /* Pods-TW048.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -334,6 +339,7 @@
 				A6B2848A18DB210F00E2654D /* UIKit.framework */,
 				A6B2848C18DB210F00E2654D /* SpriteKit.framework */,
 				A6B284AC18DB210F00E2654D /* XCTest.framework */,
+				6DD43AAF626249DABDBE11DA /* libPods-TW048.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -441,9 +447,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6B284BC18DB210F00E2654D /* Build configuration list for PBXNativeTarget "TW048" */;
 			buildPhases = (
+				B7F9E5E9A45B4182A5A1E999 /* Check Pods Manifest.lock */,
 				A6B2847F18DB210E00E2654D /* Sources */,
 				A6B2848018DB210E00E2654D /* Frameworks */,
 				A6B2848118DB210E00E2654D /* Resources */,
+				B9D22DF2563F4E9D89761B3F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -482,6 +490,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Niklas Riekenbrauck";
 				TargetAttributes = {
+					A6B2848218DB210E00E2654D = {
+						DevelopmentTeam = SFJPT2TG3Z;
+					};
 					A6B284AA18DB210F00E2654D = {
 						TestTargetID = A6B2848218DB210E00E2654D;
 					};
@@ -538,6 +549,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7F9E5E9A45B4182A5A1E999 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B9D22DF2563F4E9D89761B3F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-TW048-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6B2847F18DB210E00E2654D /* Sources */ = {
@@ -644,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -676,7 +720,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -684,9 +728,11 @@
 		};
 		A6B284BD18DB210F00E2654D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FDAA5ACD684BF1AD75A5AA /* Pods-TW048.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TW048/TW048-Prefix.pch";
 				INFOPLIST_FILE = "TW048/TW048-Info.plist";
@@ -698,9 +744,11 @@
 		};
 		A6B284BE18DB210F00E2654D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FDAA5ACD684BF1AD75A5AA /* Pods-TW048.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TW048/TW048-Prefix.pch";
 				INFOPLIST_FILE = "TW048/TW048-Info.plist";

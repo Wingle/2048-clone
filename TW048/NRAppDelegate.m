@@ -7,11 +7,35 @@
 //
 
 #import "NRAppDelegate.h"
+#import <UMengAnalytics/MobClick.h>
 
 @implementation NRAppDelegate
 
+- (void)umengTrack {
+    [MobClick setCrashReportEnabled:YES]; // 如果不需要捕捉异常，注释掉此行
+#if DEBUG
+    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
+#endif
+    
+    [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
+    
+    [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) REALTIME channelId:nil];
+    //   reportPolicy为枚举类型,可以为 REALTIME, BATCH,SENDDAILY,SENDWIFIONLY几种
+    //   channelId 为NSString * 类型，channelId 为nil或@""时,默认会被被当作@"App Store"渠道
+    
+    [MobClick updateOnlineConfig];  //在线参数配置
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onlineConfigCallBack:) name:UMOnlineConfigDidFinishedNotification object:nil];
+    
+}
+
+- (void)onlineConfigCallBack:(NSNotification *)note {
+    LOG(@"online config has fininshed and note = %@", note.userInfo);
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self umengTrack];
     //Create a Highscore Integer in the Defaults in case is doesnt yet exist
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults integerForKey:@"Highscore"] == 0) {
