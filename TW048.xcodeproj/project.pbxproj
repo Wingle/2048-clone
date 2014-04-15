@@ -22,6 +22,10 @@
 		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
 		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
 		56BFB60D18EC6EFE0096A78E /* GZGameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB60C18EC6EFE0096A78E /* GZGameData.m */; };
+		98554A3318FD0BDE00D95082 /* ios-social-sdk-shake.html in Resources */ = {isa = PBXBuildFile; fileRef = 98554A2A18FD0BDE00D95082 /* ios-social-sdk-shake.html */; };
+		98554A3418FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98554A2B18FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a */; };
+		98554A3518FD0BDE00D95082 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98554A2E18FD0BDE00D95082 /* libSocialWechat.a */; };
+		98554A3618FD0BDE00D95082 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98554A2F18FD0BDE00D95082 /* libWeChatSDK.a */; };
 		9AE1B88401CF4ADF86A524E3 /* libPods-TW048.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD43AAF626249DABDBE11DA /* libPods-TW048.a */; };
 		A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */; };
 		A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1118DCF0B2001A68F0 /* NRTile.m */; };
@@ -103,6 +107,14 @@
 		56C1175318DF944D00F6E79B /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		67FDAA5ACD684BF1AD75A5AA /* Pods-TW048.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TW048.xcconfig"; path = "Pods/Pods-TW048.xcconfig"; sourceTree = "<group>"; };
 		6DD43AAF626249DABDBE11DA /* libPods-TW048.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TW048.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98554A2A18FD0BDE00D95082 /* ios-social-sdk-shake.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "ios-social-sdk-shake.html"; sourceTree = "<group>"; };
+		98554A2B18FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocial_Sdk_ScreenShot_1.0.a; sourceTree = "<group>"; };
+		98554A2C18FD0BDE00D95082 /* UMSocialScreenShoter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialScreenShoter.h; sourceTree = "<group>"; };
+		98554A2E18FD0BDE00D95082 /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
+		98554A2F18FD0BDE00D95082 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		98554A3018FD0BDE00D95082 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		98554A3118FD0BDE00D95082 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		98554A3218FD0BDE00D95082 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6523F1018DCF0B2001A68F0 /* NRTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTile.h; sourceTree = "<group>"; };
 		A6523F1118DCF0B2001A68F0 /* NRTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTile.m; sourceTree = "<group>"; };
@@ -167,8 +179,11 @@
 				A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */,
 				A6B2848918DB210F00E2654D /* CoreGraphics.framework in Frameworks */,
 				A6B2848B18DB210F00E2654D /* UIKit.framework in Frameworks */,
+				98554A3618FD0BDE00D95082 /* libWeChatSDK.a in Frameworks */,
 				A6B2848D18DB210F00E2654D /* SpriteKit.framework in Frameworks */,
+				98554A3518FD0BDE00D95082 /* libSocialWechat.a in Frameworks */,
 				A6B2848718DB210F00E2654D /* Foundation.framework in Frameworks */,
+				98554A3418FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a in Frameworks */,
 				9AE1B88401CF4ADF86A524E3 /* libPods-TW048.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +323,37 @@
 			path = "App Icon [Squared]";
 			sourceTree = "<group>";
 		};
+		98554A2818FD0BDE00D95082 /* UMeng_Extra */ = {
+			isa = PBXGroup;
+			children = (
+				98554A2918FD0BDE00D95082 /* UMSocial_ScreenShot_Sdk */,
+				98554A2D18FD0BDE00D95082 /* Wechat */,
+			);
+			path = UMeng_Extra;
+			sourceTree = "<group>";
+		};
+		98554A2918FD0BDE00D95082 /* UMSocial_ScreenShot_Sdk */ = {
+			isa = PBXGroup;
+			children = (
+				98554A2A18FD0BDE00D95082 /* ios-social-sdk-shake.html */,
+				98554A2B18FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a */,
+				98554A2C18FD0BDE00D95082 /* UMSocialScreenShoter.h */,
+			);
+			path = UMSocial_ScreenShot_Sdk;
+			sourceTree = "<group>";
+		};
+		98554A2D18FD0BDE00D95082 /* Wechat */ = {
+			isa = PBXGroup;
+			children = (
+				98554A2E18FD0BDE00D95082 /* libSocialWechat.a */,
+				98554A2F18FD0BDE00D95082 /* libWeChatSDK.a */,
+				98554A3018FD0BDE00D95082 /* UMSocialWechatHandler.h */,
+				98554A3118FD0BDE00D95082 /* WXApi.h */,
+				98554A3218FD0BDE00D95082 /* WXApiObject.h */,
+			);
+			path = Wechat;
+			sourceTree = "<group>";
+		};
 		A6B2847A18DB210D00E2654D = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +401,7 @@
 				A6E5A3F318DDFC700082410C /* NRGameOverSheetViewController.h */,
 				A6E5A3F418DDFC700082410C /* NRGameOverSheetViewController.m */,
 				A6D44D7A18DB564C004619FE /* Game Scene */,
+				98554A2818FD0BDE00D95082 /* UMeng_Extra */,
 				56BFB60E18EC6F030096A78E /* Model */,
 				56339B5B18E76BAB008713F9 /* Tools */,
 				56339B5C18E76BEB008713F9 /* Resources */,
@@ -529,6 +576,7 @@
 				5659478318DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav in Resources */,
 				5659478918DDCF8200066ECE /* 219005__yap-audio-production__weaponswipe03.mp3 in Resources */,
 				A6B1259218DC733900D07377 /* Main.storyboard in Resources */,
+				98554A3318FD0BDE00D95082 /* ios-social-sdk-shake.html in Resources */,
 				5659478618DDCF8200066ECE /* 177120__rdholder__2dogsound-tadaa1-3s-2013jan31-cc-by-30-us.wav in Resources */,
 				5659478D18DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */,
 				5659478718DDCF8200066ECE /* 171671__fins__success-1.wav in Resources */,
@@ -736,6 +784,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TW048/TW048-Prefix.pch";
 				INFOPLIST_FILE = "TW048/TW048-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TW048/UMeng_Extra/UMSocial_ScreenShot_Sdk",
+					"$(PROJECT_DIR)/TW048/UMeng_Extra/Wechat",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -752,6 +805,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TW048/TW048-Prefix.pch";
 				INFOPLIST_FILE = "TW048/TW048-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TW048/UMeng_Extra/UMSocial_ScreenShot_Sdk",
+					"$(PROJECT_DIR)/TW048/UMeng_Extra/Wechat",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;

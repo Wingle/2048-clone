@@ -23,13 +23,16 @@
 
 @implementation NRGameViewController {
     NRGameScene *scene;
-    SoundPlayer *soundPlayer;
 }
 @synthesize scoreLabel;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
     
     //Setup Highscore Label
     NSInteger highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Highscore"];
@@ -41,8 +44,6 @@
     [[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
     
     // SoundPlayer
-    soundPlayer = [SoundPlayer new];
-    [soundPlayer playBackgroundSound];
     
 
     //Make round corners
@@ -77,10 +78,18 @@
     [MobClick beginLogPageView:@"游戏页面"];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [MobClick endLogPageView:@"游戏页面"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [[SoundPlayer defualtPlayer] stopBackgroundSound];
 }
 
 - (GADRequest *)request {
@@ -152,20 +161,20 @@
         NRGameOverSheetViewController *viewController = (NRGameOverSheetViewController *)presentedFSViewController;
         viewController.score = score;
         if (gameOverType == kGameWon) {
-            viewController.statusTextLabel.text = @"恭喜你，你赢了!";
-            [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kSuccess]
+            viewController.statusTextLabel.text = @"哇，万人景仰!";
+            [scene runAction:[SKAction playSoundFileNamed:[[SoundPlayer defualtPlayer] soundNameOfType:kSuccess]
                                         waitForCompletion:NO]];
         } else {
-            viewController.statusTextLabel.text = @"恭喜你，你赢了!";
-            [scene runAction:[SKAction playSoundFileNamed:[SoundPlayer soundNameOfType:kFailure]
+            [scene runAction:[SKAction playSoundFileNamed:[[SoundPlayer defualtPlayer] soundNameOfType:kFailure]
                                         waitForCompletion:NO]];
             viewController.statusTextLabel.text = @"游戏结束!";
         }
-        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"你的得分: %i",(int)score];
+        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"我本次得分: %i\n最高记录: %@",(int)score, self.bestLabel.text];
     };
     
+    __weak typeof(self) weakSelf = self;
     [self mz_presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-        
+        [weakSelf prepareGame];
     }];
     
 }
@@ -189,7 +198,4 @@
             [scene.mapTiles performedSwipeGestureInDirection:sender.direction];
 }
 
--(void)viewDidDisappear:(BOOL)animated {
-    [soundPlayer stopBackgroundSound];
-}
 @end

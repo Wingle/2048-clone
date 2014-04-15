@@ -17,6 +17,15 @@
 
 @implementation SoundPlayer
 
++ (instancetype)defualtPlayer {
+    static id defualtInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        defualtInstance = [[self alloc] init];
+    });
+    return defualtInstance;
+}
+
 -(void)playSoundOfType:(Soundtype)soundtype{
     
     NSError *error;
@@ -50,7 +59,7 @@
     }
 }
 
-+(NSString*)soundNameOfType:(Soundtype)type {
+- (NSString*)soundNameOfType:(Soundtype)type {
     
     switch (type) {
         case kFailure:

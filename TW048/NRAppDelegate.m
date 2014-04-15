@@ -7,7 +7,10 @@
 //
 
 #import "NRAppDelegate.h"
+#import "UMSocialWechatHandler.h"
 #import <UMengAnalytics/MobClick.h>
+#import <UMSocial.h>
+#import "SoundPlayer.h"
 
 @implementation NRAppDelegate
 
@@ -20,6 +23,9 @@
     [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
     
     [MobClick startWithAppkey:UMENG_APPKEY reportPolicy:(ReportPolicy) REALTIME channelId:nil];
+    [UMSocialData setAppKey:UMENG_APPKEY];
+    [UMSocialWechatHandler setWXAppId:WECHAT_APPKEY url:nil];
+    
     //   reportPolicy为枚举类型,可以为 REALTIME, BATCH,SENDDAILY,SENDWIFIONLY几种
     //   channelId 为NSString * 类型，channelId 为nil或@""时,默认会被被当作@"App Store"渠道
     
@@ -51,6 +57,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[SoundPlayer defualtPlayer] stopBackgroundSound];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -62,16 +69,32 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[SoundPlayer defualtPlayer] playBackgroundSound];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [UMSocialSnsService  applicationDidBecomeActive];
+    [[SoundPlayer defualtPlayer] playBackgroundSound];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[SoundPlayer defualtPlayer] stopBackgroundSound];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return  [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
 }
 
 @end

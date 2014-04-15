@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define UMENG_APPKEY @"534b5d6856240b1b0c1a4fd2"
+#define WECHAT_APPKEY @"wx844b563facdcfec5"
 
 @interface NRAppDelegate : UIResponder <UIApplicationDelegate>
 

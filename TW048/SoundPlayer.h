@@ -17,12 +17,14 @@ typedef enum Soundtype:NSInteger {
 
 @interface SoundPlayer: NSObject
 
++ (instancetype)defualtPlayer;
+
 - (void)playSoundOfType:(Soundtype)soundtype;
 
 - (void)playBackgroundSound;
 - (void)stopBackgroundSound;
 - (BOOL)backgroundSoundOn;
 
-+(NSString*)soundNameOfType:(Soundtype)type;
+- (NSString*)soundNameOfType:(Soundtype)type;
 
 @end

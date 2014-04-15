@@ -9,6 +9,9 @@
 #import "NRGameOverSheetViewController.h"
 #import "MZFormSheetController.h"
 #import <Social/Social.h>
+#import <UMengSocial/UMSocial.h>
+#import "UMSocialScreenShoter.h"
+#import "NRAppDelegate.h"
 
 @interface NRGameOverSheetViewController ()
 
@@ -25,6 +28,8 @@
     self.tweetButton.layer.masksToBounds    = YES;
     self.facebookButton.layer.cornerRadius  = 4.0;
     self.facebookButton.layer.masksToBounds = YES;
+    
+    [self.tweetButton setTitleColor:[UIColor colorWithRed:194.f/255 green:49.f/255 blue:49.f/255 alpha:1] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,13 +49,9 @@
 
 
 - (IBAction)pushedTweet:(UIButton *)sender {
-    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
-    {
-        SLComposeViewController *tweetSheet = [SLComposeViewController
-                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048-ios-game",(int)self.score]];
-        [self presentViewController:tweetSheet animated:YES completion:nil];
-    }
+    UIImage *image = [[UMSocialScreenShoterDefault screenShoter] getScreenShot];
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:nil shareText:@"分享文字" shareImage:image shareToSnsNames:@[UMShareToWechatTimeline, UMShareToWechatSession, UMShareToWechatTimeline] delegate:nil];
+    [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
 }
 
 - (IBAction)pushedFacebook:(UIButton *)sender {
