@@ -348,13 +348,14 @@
                                     <action selector="pushedRestart:" destination="mBb-Vb-aAT" eventType="touchUpInside" id="2Cp-Q2-BbO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pv-Hu-sCp">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pv-Hu-sCp">
                                 <rect key="frame" x="60" y="131" width="160" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.67843137249999996" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <state key="normal" title="炫耀一下，不服来挑">
                                     <color key="titleColor" red="0.74901960779999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.74901960779999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="pushedTweet:" destination="mBb-Vb-aAT" eventType="touchUpInside" id="REJ-Cw-UIu"/>
