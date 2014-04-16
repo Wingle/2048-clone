@@ -150,7 +150,8 @@
 
 -(void)showPopUpWithScore:(NSInteger)score andGameOverType:(GameOverType)gameOverType {
     
-    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sheet"];
+    NRGameOverSheetViewController *vc = (NRGameOverSheetViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"sheet"];
+    vc.preViewController = self;
     
     MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:vc];
     
@@ -169,12 +170,11 @@
                                         waitForCompletion:NO]];
             viewController.statusTextLabel.text = @"游戏结束!";
         }
-        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"我本次得分: %i\n最高记录: %@",(int)score, self.bestLabel.text];
+        viewController.scoreTextLabel.text = [NSString stringWithFormat:@"本次得分: %i\n最高记录: %@",(int)score, self.bestLabel.text];
     };
     
-    __weak typeof(self) weakSelf = self;
     [self mz_presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-        [weakSelf prepareGame];
+        
     }];
     
 }

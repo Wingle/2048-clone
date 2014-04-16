@@ -39,7 +39,7 @@
 }
 - (IBAction)pushedRestart:(UIButton *)sender {
     
-    
+    [self.preViewController prepareGame];
     MZFormSheetController *parent = (MZFormSheetController*)[self mz_parentTargetViewController];
     [parent mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
 
@@ -50,15 +50,15 @@
 
 - (IBAction)pushedTweet:(UIButton *)sender {
     UIImage *image = [[UMSocialScreenShoterDefault screenShoter] getScreenShot];
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:nil shareText:@"分享文字" shareImage:image shareToSnsNames:@[UMShareToWechatTimeline, UMShareToWechatSession, UMShareToWechatTimeline] delegate:nil];
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:nil shareText:@"一起2048" shareImage:image shareToSnsNames:@[UMShareToWechatTimeline, UMShareToWechatSession ,UMShareToSina] delegate:nil];
     [UMSocialData defaultData].extConfig.wxMessageType = UMSocialWXMessageTypeImage;
 }
 
 - (IBAction)pushedFacebook:(UIButton *)sender {
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        [controller setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048-ios-game",(int)self.score]];
-        [self presentViewController:controller animated:YES completion:Nil];
-    }
+//    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+//        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//        [controller setInitialText:[NSString stringWithFormat:@"I scored %i points in 2048 for iPhone. 2048 can be downloaded from http://nikriek.de/2048-ios-game",(int)self.score]];
+//        [self presentViewController:controller animated:YES completion:Nil];
+//    }
 }
 @end
