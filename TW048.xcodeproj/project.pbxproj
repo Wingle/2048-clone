@@ -19,7 +19,6 @@
 		5659478C18DDCF8200066ECE /* 202230__deraj__pop-sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659477F18DDCF8200066ECE /* 202230__deraj__pop-sound.wav */; };
 		5659478D18DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5659478018DDCF8200066ECE /* 47498__carlsablowedwards__mouthpop-02.wav */; };
 		5659478E18DDCF8200066ECE /* The Binary Code Song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5659478118DDCF8200066ECE /* The Binary Code Song.mp3 */; };
-		5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E48F18DDC9D100FF1594 /* Social.framework */; };
 		5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5689E49118DDC9D900FF1594 /* AVFoundation.framework */; };
 		56BFB60D18EC6EFE0096A78E /* GZGameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BFB60C18EC6EFE0096A78E /* GZGameData.m */; };
 		98554A3318FD0BDE00D95082 /* ios-social-sdk-shake.html in Resources */ = {isa = PBXBuildFile; fileRef = 98554A2A18FD0BDE00D95082 /* ios-social-sdk-shake.html */; };
@@ -174,7 +173,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5689E49018DDC9D200FF1594 /* Social.framework in Frameworks */,
 				5689E49218DDC9D900FF1594 /* AVFoundation.framework in Frameworks */,
 				A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */,
 				A6B2848918DB210F00E2654D /* CoreGraphics.framework in Frameworks */,
@@ -789,8 +787,10 @@
 					"$(PROJECT_DIR)/TW048/UMeng_Extra/UMSocial_ScreenShot_Sdk",
 					"$(PROJECT_DIR)/TW048/UMeng_Extra/Wechat",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -810,8 +810,10 @@
 					"$(PROJECT_DIR)/TW048/UMeng_Extra/UMSocial_ScreenShot_Sdk",
 					"$(PROJECT_DIR)/TW048/UMeng_Extra/Wechat",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
