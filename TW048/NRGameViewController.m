@@ -14,15 +14,20 @@
 #import <Google-AdMob-Ads-SDK/GADBannerView.h>
 #import <Google-AdMob-Ads-SDK/GADRequest.h>
 #import <UMengAnalytics/MobClick.h>
+#import <ASIHTTPRequest/ASIHTTPRequest.h>
+#import "NSObject+NSJSONSerialization.h"
+#import "NRJokeViewController.h"
 
-@interface NRGameViewController () <GADBannerViewDelegate>
+@interface NRGameViewController () <GADBannerViewDelegate, ASIHTTPRequestDelegate>
 
 @property(nonatomic, strong) GADBannerView *adBanner;
+@property(nonatomic, strong) NSMutableArray *jokesArray;
 
 @end
 
 @implementation NRGameViewController {
     NRGameScene *scene;
+    NSInteger jokeCount;
 }
 @synthesize scoreLabel;
 
@@ -33,6 +38,8 @@
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
+    self.jokesArray = [NSMutableArray array];
+    jokeCount = 0;
     
     //Setup Highscore Label
     NSInteger highscore = [[NSUserDefaults standardUserDefaults] integerForKey:@"Highscore"];
@@ -70,12 +77,27 @@
     self.adBanner.rootViewController = self;
     [self.view addSubview:self.adBanner];
     [self.adBanner loadRequest:[self request]];
+    
+    // load joke.
+    NSString *strURL = @"http://ic.snssdk.com/2/essay/ugc/hesitate/essay/v10/?tag=joke&iid=238687279&count=50&app_name=joke_essay";
+    LOG(@"request url = %@",strURL);
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:strURL]];
+    [request setUserAgentString:@"Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko"];
+    [request setDelegate:self];
+    [request setTimeOutSeconds:5];
+    [request startAsynchronous];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:@"游戏页面"];
+    
+    if (jokeCount == 0) {
+        return;
+    }
+    NSInteger randon = arc4random() % jokeCount;
+    self.jokeLabel.text = [NSString stringWithFormat:@"段子：%@",self.jokesArray[randon]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -101,8 +123,6 @@
                             // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
                             // the console when the app is launched.
                             GAD_SIMULATOR_ID,
-                            @"672e13ff37a8c1e99a51375df44e9f4c9f610d7f",
-                            @"5ea83bfbbab6d8e72c936fa4888757666a28a4c0"
                             ];
     return request;
 }
@@ -173,7 +193,10 @@
         viewController.scoreTextLabel.text = [NSString stringWithFormat:@"本次得分: %i\n最高记录: %@",(int)score, self.bestLabel.text];
     };
     
+    __weak typeof(self) weakSelf = self;
     [self mz_presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+        NSInteger randon = arc4random() % jokeCount;
+        weakSelf.jokeLabel.text = [NSString stringWithFormat:@"段子:%@",weakSelf.jokesArray[randon]];;
         
     }];
     
@@ -197,5 +220,41 @@
         if (sender.direction == recognizer.direction)
             [scene.mapTiles performedSwipeGestureInDirection:sender.direction];
 }
+
+- (IBAction)displayJokeView:(id)sender {
+    [MobClick event:@"jokeViewClicked"];
+    NRJokeViewController *jokeViewContoller = [[NRJokeViewController alloc] initWithNibName:@"NRJokeViewController" bundle:nil];
+    jokeViewContoller.text = self.jokeLabel.text;
+    LOG(@"%@",self.jokeLabel.text);
+    [self presentViewController:jokeViewContoller animated:YES completion:nil];
+}
+
+#pragma mark - ASIHTTPDelegate
+- (void)requestFinished:(ASIHTTPRequest *)request {
+    if (request.responseStatusCode != 200) {
+        LOG(@"responseStatusCode = %d",request.responseStatusCode);
+        return;
+    }
+    
+    NSDictionary *responseDic = [request.responseString JSONValue];
+    if (![[responseDic objectForKey:@"message"] isEqualToString:@"success"]) {
+        return;
+    }
+    
+    NSArray *data = [responseDic objectForKey:@"data"];
+    for (NSDictionary *joke in data) {
+        NSString *jokeText = [joke objectForKey:@"content"];
+        if (jokeText == nil || [jokeText isEqualToString:@""]) {
+            continue;
+        }
+        [self.jokesArray addObject:jokeText];
+    }
+    jokeCount = [self.jokesArray count];
+    if (jokeCount > 0) {
+        self.jokeLabel.text = [NSString stringWithFormat:@"段子:%@",self.jokesArray[0]];
+    }
+    
+}
+
 
 @end

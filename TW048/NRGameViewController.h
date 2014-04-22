@@ -19,6 +19,7 @@ typedef enum GameOverType:BOOL {
 
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bestLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jokeLabel;
 
 @property (weak, nonatomic) IBOutlet UIView *scoreBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *bestBackgroundView;
@@ -30,6 +31,7 @@ typedef enum GameOverType:BOOL {
 
 
 - (IBAction)madeSwipeGesture:(UISwipeGestureRecognizer *)sender;
+- (IBAction)displayJokeView:(id)sender;
 
 -(void)prepareGame;
 @end

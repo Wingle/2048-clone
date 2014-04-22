@@ -110,12 +110,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-Ap-PHF" customClass="SKView">
-                                <rect key="frame" x="20" y="146" width="280" height="280"/>
+                                <rect key="frame" x="20" y="149" width="280" height="280"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.73333333333333328" green="0.67843137254901964" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ss-L2-Q8P">
-                                <rect key="frame" x="20" y="59" width="136" height="70"/>
+                                <rect key="frame" x="20" y="64" width="136" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本次得分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qga-mX-Uio">
@@ -136,7 +136,7 @@
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.67843137249999996" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSN-L6-XpN">
-                                <rect key="frame" x="164" y="59" width="136" height="70"/>
+                                <rect key="frame" x="164" y="64" width="136" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最高纪录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OH2-pw-oKf">
@@ -156,6 +156,24 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.73333333329999995" green="0.67843137249999996" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="本人男护士，那天在医院遇到一位老同学，问我在医院干什么，我低调的回了句:干护士！" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="bPt-2H-n7C">
+                                <rect key="frame" x="10" y="2" width="300" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.46666666670000001" green="0.43137254899999999" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWy-SI-eW1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="displayJokeView:" destination="LVB-YS-i5n" eventType="touchUpInside" id="ft9-oS-D8P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.97254901959999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
@@ -172,6 +190,7 @@
                         <outlet property="bestBackgroundView" destination="GSN-L6-XpN" id="3ht-Tz-J9U"/>
                         <outlet property="bestLabel" destination="P5H-4d-wsm" id="JwL-R4-RDY"/>
                         <outlet property="gamepadView" destination="5KH-Ap-PHF" id="j6c-UF-ihL"/>
+                        <outlet property="jokeLabel" destination="bPt-2H-n7C" id="g23-A6-2D1"/>
                         <outlet property="scoreBackgroundView" destination="7ss-L2-Q8P" id="4He-2i-0nT"/>
                         <outlet property="scoreLabel" destination="Lze-Mn-36E" id="tYl-qd-G4r"/>
                         <outletCollection property="swipeGestureRecognizerCollection" destination="7We-tg-T3h" id="QcW-kr-F5x"/>

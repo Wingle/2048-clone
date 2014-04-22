@@ -25,6 +25,9 @@
 		98554A3418FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98554A2B18FD0BDE00D95082 /* libUMSocial_Sdk_ScreenShot_1.0.a */; };
 		98554A3518FD0BDE00D95082 /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98554A2E18FD0BDE00D95082 /* libSocialWechat.a */; };
 		98554A3618FD0BDE00D95082 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98554A2F18FD0BDE00D95082 /* libWeChatSDK.a */; };
+		98E028A11906351600E45162 /* NSObject+NSJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E028A01906351600E45162 /* NSObject+NSJSONSerialization.m */; };
+		98E028A619066A5900E45162 /* NRJokeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E028A419066A5900E45162 /* NRJokeViewController.m */; };
+		98E028A719066A5900E45162 /* NRJokeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98E028A519066A5900E45162 /* NRJokeViewController.xib */; };
 		9AE1B88401CF4ADF86A524E3 /* libPods-TW048.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD43AAF626249DABDBE11DA /* libPods-TW048.a */; };
 		A6523F0F18DCCEA8001A68F0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */; };
 		A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */ = {isa = PBXBuildFile; fileRef = A6523F1118DCF0B2001A68F0 /* NRTile.m */; };
@@ -114,6 +117,11 @@
 		98554A3018FD0BDE00D95082 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		98554A3118FD0BDE00D95082 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		98554A3218FD0BDE00D95082 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		98E0289F1906351600E45162 /* NSObject+NSJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSJSONSerialization.h"; sourceTree = "<group>"; };
+		98E028A01906351600E45162 /* NSObject+NSJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSJSONSerialization.m"; sourceTree = "<group>"; };
+		98E028A319066A5900E45162 /* NRJokeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRJokeViewController.h; sourceTree = "<group>"; };
+		98E028A419066A5900E45162 /* NRJokeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRJokeViewController.m; sourceTree = "<group>"; };
+		98E028A519066A5900E45162 /* NRJokeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NRJokeViewController.xib; sourceTree = "<group>"; };
 		A6523F0E18DCCEA8001A68F0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6523F1018DCF0B2001A68F0 /* NRTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRTile.h; sourceTree = "<group>"; };
 		A6523F1118DCF0B2001A68F0 /* NRTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRTile.m; sourceTree = "<group>"; };
@@ -203,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				A6E5A3DD18DDFB990082410C /* MZFormSheetController */,
+				98E0289F1906351600E45162 /* NSObject+NSJSONSerialization.h */,
+				98E028A01906351600E45162 /* NSObject+NSJSONSerialization.m */,
 				A6E79CF418DDEC9D00301D99 /* SoundPlayer.h */,
 				A6E79CF518DDEC9D00301D99 /* SoundPlayer.m */,
 			);
@@ -352,6 +362,16 @@
 			path = Wechat;
 			sourceTree = "<group>";
 		};
+		98E028A219066A1D00E45162 /* JokeDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				98E028A319066A5900E45162 /* NRJokeViewController.h */,
+				98E028A419066A5900E45162 /* NRJokeViewController.m */,
+				98E028A519066A5900E45162 /* NRJokeViewController.xib */,
+			);
+			name = JokeDisplayView;
+			sourceTree = "<group>";
+		};
 		A6B2847A18DB210D00E2654D = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +411,7 @@
 		A6B2848E18DB210F00E2654D /* TW048 */ = {
 			isa = PBXGroup;
 			children = (
+				98E028A219066A1D00E45162 /* JokeDisplayView */,
 				A6B2849718DB210F00E2654D /* NRAppDelegate.h */,
 				A6B2849818DB210F00E2654D /* NRAppDelegate.m */,
 				A6B2849A18DB210F00E2654D /* Main.storyboard */,
@@ -569,6 +590,7 @@
 			files = (
 				5659478518DDCF8200066ECE /* 157846__darkmast49__fightscene.mp3 in Resources */,
 				5659478A18DDCF8200066ECE /* 83237__mlestn1__pop.wav in Resources */,
+				98E028A719066A5900E45162 /* NRJokeViewController.xib in Resources */,
 				5659478218DDCF8200066ECE /* 157846_darkmast49_fightscene (mp3cut.net).wav in Resources */,
 				5659478418DDCF8200066ECE /* Computer Error-SoundBible.com-1655839472.wav in Resources */,
 				5659478318DDCF8200066ECE /* 138490__randomationpictures__powerdown-2.wav in Resources */,
@@ -636,6 +658,7 @@
 			files = (
 				A6E5A3EF18DDFB990082410C /* MZFormSheetSegue.m in Sources */,
 				A6E5A3EC18DDFB990082410C /* MZFormSheetBackgroundWindow.m in Sources */,
+				98E028A619066A5900E45162 /* NRJokeViewController.m in Sources */,
 				56BFB60D18EC6EFE0096A78E /* GZGameData.m in Sources */,
 				A6523F1218DCF0B2001A68F0 /* NRTile.m in Sources */,
 				A6523F1818DD19FA001A68F0 /* NRTileMatrix.m in Sources */,
@@ -651,6 +674,7 @@
 				A6A4005F18DC76E800E11F35 /* NRTileMap.m in Sources */,
 				A6B2849518DB210F00E2654D /* main.m in Sources */,
 				A6E5A3ED18DDFB990082410C /* MZFormSheetBackgroundWindowViewController.m in Sources */,
+				98E028A11906351600E45162 /* NSObject+NSJSONSerialization.m in Sources */,
 				A6E79CF618DDEC9D00301D99 /* SoundPlayer.m in Sources */,
 				A6E5A3F018DDFB990082410C /* MZTransition.m in Sources */,
 			);
@@ -735,8 +759,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -769,6 +794,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s";
 			};
 			name = Release;
 		};
