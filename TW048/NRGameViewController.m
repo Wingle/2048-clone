@@ -18,6 +18,9 @@
 #import "NSObject+NSJSONSerialization.h"
 #import "NRJokeViewController.h"
 
+#define JokeTitle   @"段子："
+
+
 @interface NRGameViewController () <GADBannerViewDelegate, ASIHTTPRequestDelegate>
 
 @property(nonatomic, strong) GADBannerView *adBanner;
@@ -97,7 +100,7 @@
         return;
     }
     NSInteger randon = arc4random() % jokeCount;
-    self.jokeLabel.text = [NSString stringWithFormat:@"段子：%@",self.jokesArray[randon]];
+    self.jokeLabel.text = [NSString stringWithFormat:@"%@%@", JokeTitle, self.jokesArray[randon]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -196,7 +199,7 @@
     __weak typeof(self) weakSelf = self;
     [self mz_presentFormSheetController:formSheet animated:YES completionHandler:^(MZFormSheetController *formSheetController) {
         NSInteger randon = arc4random() % jokeCount;
-        weakSelf.jokeLabel.text = [NSString stringWithFormat:@"段子:%@",weakSelf.jokesArray[randon]];;
+        weakSelf.jokeLabel.text = [NSString stringWithFormat:@"%@%@", JokeTitle, weakSelf.jokesArray[randon]];;
         
     }];
     
@@ -222,11 +225,11 @@
 }
 
 - (IBAction)displayJokeView:(id)sender {
-    [MobClick event:@"jokeViewClicked"];
     NRJokeViewController *jokeViewContoller = [[NRJokeViewController alloc] initWithNibName:@"NRJokeViewController" bundle:nil];
-    jokeViewContoller.text = self.jokeLabel.text;
+    jokeViewContoller.text = [self.jokeLabel.text substringFromIndex:3];
     LOG(@"%@",self.jokeLabel.text);
     [self presentViewController:jokeViewContoller animated:YES completion:nil];
+    [MobClick event:@"jokeViewClicked"];
 }
 
 #pragma mark - ASIHTTPDelegate
@@ -251,7 +254,7 @@
     }
     jokeCount = [self.jokesArray count];
     if (jokeCount > 0) {
-        self.jokeLabel.text = [NSString stringWithFormat:@"段子:%@",self.jokesArray[0]];
+        self.jokeLabel.text = [NSString stringWithFormat:@"%@%@", JokeTitle, self.jokesArray[0]];
     }
     
 }
